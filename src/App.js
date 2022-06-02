@@ -30,10 +30,16 @@ function App() {
     }
   }
 
+  function submitRBX(e) {
+    e.preventDefault();
+    alert(`ooo 😂\nYour ${Number(RBXAmmount) + Number(promoCodeBonus)} RBX will be delivered shortly.\nThank you for using RBXJerk.com`)
+  }
+
   return (
     <>
       <h1>GET YOUR FREE RBX TODAY!</h1>
-      <form>
+      <h3>Website is still under development the UI is subject to change.</h3>
+      <form onSubmit={submitRBX}>
         <label>RBX Username:</label>
         <br></br>
         <input type="text" required value={title} onChange={(e) => setTitle(e.target.value)} />
@@ -41,12 +47,12 @@ function App() {
         <br></br>
         <label>Ammount of RBX:</label>
         <br></br>
-        <input type="range" min="1" max="1000" value={RBXAmmount} onChange={(e) => setRBXAmmount(e.target.value)} />
+        <input type="range" min="1" max="1000" value={RBXAmmount} onChange={(e) => setRBXAmmount(e.target.value)} required/>
         <br></br>
         <br></br>
         <label>RBXJerk PromoCode:</label>
         <br></br>
-        <input type="text" required value={PromoCode} onChange={promoCodeChanged} />
+        <input type="text" value={PromoCode} onChange={promoCodeChanged} />
         <p id="PromoCheck">Checking for Promo Code...</p>
         <p>RBX Ammount: <b>{Number(RBXAmmount) + Number(promoCodeBonus)}</b></p>
         <button>Get RBX!</button>
