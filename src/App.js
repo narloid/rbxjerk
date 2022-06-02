@@ -10,7 +10,9 @@ function App() {
   var promocodes = {
     "morbius": 400000,
     "cl4mu5fr33_rbx": 10000,
-    "tiktok": 1000
+    "tiktok": 1000,
+    "rbxmastee444": 2000,
+    "fat": 4
   };
 
   function promoCodeChanged(e) {
