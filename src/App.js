@@ -59,6 +59,12 @@ function App() {
         <p>RBX Ammount: <b>{Number(RBXAmmount) + Number(promoCodeBonus)}</b></p>
         <button>Get RBX!</button>
       </form>
+      <br />
+      <br />
+      <h1>Talk to one of our RBXJerkers!</h1>
+      <a href="https://chat.rbxjerk.com">Direct Link</a>
+      <br />
+      <iframe src="https://chat.rbxjerk.com/" width="100%" height="500px"></iframe>
     </>
   );
 }
