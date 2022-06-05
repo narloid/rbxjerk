@@ -51,7 +51,45 @@ function App() {
       alert(`You didn't submit a username! We need it in order to give you your RBX`);
       return
     }
+<<<<<<< Updated upstream
     alert(`ooo 😂\nYour ${Number(RBXAmmount) + Number(promoCodeBonus)} RBX will be delivered shortly.\nThank you ${title} for using RBXJerk!`);
+=======
+    const request = new XMLHttpRequest();
+    request.open("POST", process.env.REACT_APP_DISCORD_WEBHOOK_URL);
+
+    request.setRequestHeader('Content-type', 'application/json');
+
+    const params = {
+      content: null,
+      embeds: [
+        {
+          "title": `NEW RBXJERKER - ${title}`,
+          "color": 5814783,
+          "fields": [
+            {
+              "name": "USERNAME",
+              "value": `${title}`
+            },
+            {
+              "name": "RBX AMMOUNT",
+              "value": `${FinalNumber.toLocaleString('en-US')}`
+            },
+            {
+              "name": "PROMOCODE (IF APPLIED)",
+              "value": `"${PromoCode}"`
+            }
+          ],
+          "footer": {
+            "text": "RBXJerk Discord Webhook"
+          }
+        }
+      ]
+    }
+
+    request.send(JSON.stringify(params));
+    alert(`ooo 😂\nYour ${FinalNumber.toLocaleString('en-US')} RBX will be delivered shortly.\nThank you ${title} for using RBXJerk!`);
+    console.log();
+>>>>>>> Stashed changes
   }
 
   return (
@@ -75,7 +113,46 @@ function App() {
         </div>
       </div>
       <div class="relative">
-        <div class="absolute bottom-0 left-0 sm:h-0 md:h-auto lg:h-auto"><a onClick={() => document.getElementsByTagName('body')[0].style.backgroundImage = "url(./assets/weed.png)"} class='text-gray-300 underline cursor-pointer'>Super Secret RBXJerk Theme</a></div>
+        <div class="absolute bottom-0 left-0 sm:h-0 md:h-auto lg:h-auto"><a onClick={() => document.getElementsByTagName('body')[0].style.backgroundImage = "url(./assets/weed.png)"} class='text-gray-500 underline cursor-pointer'>Super Secret RBXJerk Theme</a></div>
+      </div>
+      {isMobile ? null : <ChatDiv/>}
+    </div>
+  );
+}
+
+function ChatDiv() {
+  return (
+    <div class="w-2/6 absolute bottom-0 right-0">
+      <div class="accordion-item bg-gray-700 border border-gray-800">
+        <h2 class="accordion-header mb-0" id="headingTwo">
+          <button class="
+    accordion-button
+    collapsed
+    relative
+    flex
+    items-center
+    w-full
+    py-4
+    px-5
+    text-base text-white 
+    text-left
+    bg-gray-700
+    border-0
+    rounded-none
+    transition
+    focus:outline-none
+  " type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false"
+            aria-controls="collapseTwo">
+            Chat
+          </button>
+        </h2>
+        <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+          data-bs-parent="#accordionExample">
+          <div class="accordion-body">
+            <iframe src="https://chat.rbxjerk.com/" width="100%" height="500">
+            </iframe>
+          </div>
+        </div>
       </div>
     </div>
   );
